@@ -9,15 +9,14 @@ namespace recilife_api.Model
     [Table("schedule")]
     public class Schedule
     {
-        [Column("active")]
-        public Boolean active { get; set; }
-        [Column("description")]
-        public string description { get; set; }
+
         [Column("id")]
-        public int id { get; set; }
-        [Column("id_day")]
-        public int idday { get; set; }
-        [Column("id_user")]
-        public decimal iduser { get; set; }
+        public int Id { get; set; }
+        [Column("start_schedule")]
+        public TimeSpan Start { get; set; }
+        [Column("end_schedule")]
+        public TimeSpan End { get; set; }
+        [Column("active")]
+        public Boolean Active { get; set; }
     }
 }

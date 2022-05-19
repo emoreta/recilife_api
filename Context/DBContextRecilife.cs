@@ -26,5 +26,7 @@ namespace recilife_api.Context
         public DbSet<Userlocation> Userlocation { get; set; }
         public DbSet<Userschedule> Userschedule { get; set; }
         public DbSet<Usertype> Usertype { get; set; }
+        public DbSet<SeesionType> SeesionType { get; set; }
+
     }
 }

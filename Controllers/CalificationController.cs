@@ -77,7 +77,7 @@ namespace arnuv_api.Controllers
             ob.punctuation = calification.punctuation;
             _dbContextRecilife.Attach(ob).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await _dbContextRecilife.SaveChangesAsync();
-            return Ok(_dbContextRecilife);
+            return Ok(ob);
         }
     }
 }
