@@ -30,7 +30,7 @@ namespace recilife_api.Controllers
             {
                 return NotFound("Schedule id must be higher than zero");
             }
-            Schedule ob = _dbContextRecilife.Schedule.FirstOrDefault(s => s.id == id);
+            Schedule ob = _dbContextRecilife.Schedule.FirstOrDefault(s => s.Id == id);
             if (ob == null)
             {
                 return NotFound(" Schedule not found");
@@ -65,21 +65,18 @@ namespace recilife_api.Controllers
             {
                 return BadRequest(ModelState);
             }
-            Schedule ob = _dbContextRecilife.Schedule.FirstOrDefault(s => s.id == schedule.id);
+            Schedule ob = _dbContextRecilife.Schedule.FirstOrDefault(s => s.Id == schedule.Id);
             if (ob == null)
             {
                 return NotFound("Schedule does not exist in the database");
             }
-            ob.active = schedule.active;
-            ob.description = schedule.description;
-            //ob.endschedule = schedule.endschedule;//revisar con que homolgar el tipo time
-            ob.id = schedule.id;
-            ob.idday = schedule.idday;
-            ob.iduser = schedule.iduser;
-            //ob.startschedule = schedule.startschedule;//revisar con que homolgar el tipo time
+            ob.Active = schedule.Active;
+            ob.Id = schedule.Id;
+            ob.Start = schedule.Start;
+            ob.End = schedule.End;
             _dbContextRecilife.Attach(ob).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await _dbContextRecilife.SaveChangesAsync();
-            return Ok(_dbContextRecilife);
+            return Ok(ob);
         }
     }
 }
